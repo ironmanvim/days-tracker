@@ -1,5 +1,4 @@
 import { Button } from "flowbite-react";
-import { useState } from "react";
 import { HiPlus } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import TrackerCard from "./components/TrackerCard";
