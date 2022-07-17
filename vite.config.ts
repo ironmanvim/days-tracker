@@ -5,37 +5,38 @@ import { VitePWA } from "vite-plugin-pwa";
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
-        react(),
+        react({
+            include: "**/*.(png|jpg|svg)"
+        }),
         VitePWA({
-            filename: 'sw.ts',
             registerType: "autoUpdate",
             devOptions: {
                 enabled: true,
             },
             includeAssets: [
-                "src/favicon.svg",
-                "src/apple-touch-icon.png",
-                "src/masked-icon.svg",
+                "/src/favicon.svg",
+                "/src/apple-touch-icon.png",
+                "/src/masked-icon.svg",
             ],
             manifest: {
                 name: "Days Tracker",
+                short_name: "Days Tracker",
                 description: "Track your days efficiently",
                 theme_color: "#ffffff",
                 icons: [
                     {
-                        src: "pwa-192x192.png",
+                        src: "/assets/pwa-192x192.png",
                         sizes: "192x192",
                         type: "image/png",
                     },
                     {
-                        src: "pwa-512x512.png",
+                        src: "/assets/pwa-512x512.png",
                         sizes: "512x512",
                         type: "image/png",
                     },
                 ],
             },
-            srcDir: "src/service-worker",
-            strategies: "injectManifest",
+            strategies: "generateSW",
         }),
     ],
 });
