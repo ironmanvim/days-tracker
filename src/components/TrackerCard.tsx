@@ -41,7 +41,7 @@ const TrackerCard: React.FC<TrackerCardProps> = ({
                             progress={Number(
                                 ((diff * 100) / numberOfDays).toFixed(2)
                             )}
-                            label={`${name} (${numberOfDays} days)`}
+                            label={`${name} (${diff} / ${numberOfDays} days)`}
                             labelPosition="outside"
                             labelProgress={true}
                         />
