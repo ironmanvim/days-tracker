@@ -1,4 +1,4 @@
-import { differenceInCalendarDays, format } from "date-fns";
+import { differenceInCalendarDays, format, getDay } from "date-fns";
 import { Button, Progress } from "flowbite-react";
 import _ from "lodash";
 import { useState } from "react";
@@ -161,6 +161,16 @@ const Tracker: React.FC<TrackerProps> = () => {
                             </div>
                         )}
                     </div>
+                    {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => {
+                        return (
+                            <div className="flex justify-center items-center text-xs">
+                                {day}
+                            </div>
+                        )
+                    })}
+                    {_.range(0, getDay(tracker.dateStarted)).map(() => {
+                        return <div />;
+                    })}
                     {_.range(0, tracker.numberOfDays).map((index) => {
                         return (
                             <TrackerUnit
